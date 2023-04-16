@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import '../styles/TodoItem.css';
 
-const TodoItem = ({ text, completed, onDelete }) => {
+const TodoItem = ({ text, completed, onDelete, onToggleComplete }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [isChecked, setIsChecked] = useState(completed); // Yeni state değişkeni
 
   const handleDelete = () => {
     onDelete();
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    // Eğer checkbox veya Delete butonuna tıklandıysa, handleClick fonksiyonunu çağırmayız.
+    if (e.target.tagName === "INPUT" || e.target.tagName === "BUTTON") {
+      return;
+    }
     setIsClicked(!isClicked);
+    onToggleComplete(); // Checkbox'ı işaretlemek için onToggleComplete fonksiyonunu çağırdık
   };
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // checked özelliği burada tersine çevriliyor
-  };
+  
 
   return (
     <div 
@@ -25,7 +26,7 @@ const TodoItem = ({ text, completed, onDelete }) => {
         justifyContent: 'space-between', 
         maxWidth: '700px', 
         marginBottom: '10px', 
-        textDecoration: isClicked ? 'line-through' : 'none' 
+        textDecoration: isClicked ? 'line-through' : 'none'
       }}
       onClick={handleClick}
     >
@@ -33,10 +34,10 @@ const TodoItem = ({ text, completed, onDelete }) => {
         <input
           className="custom-checkbox"
           type="checkbox"
-          checked={isChecked} // checked özelliği burada state'e bağlandı
-          onChange={handleCheckboxChange} // onChange event'i buraya taşındı
+          checked={completed}
+          onChange={() => onToggleComplete(!completed)}
         />
-        <span style={{ marginLeft: '10px' }}>{text}</span> {/* aralarındaki boşluk küçültüldü */}
+        <span>{text}</span>
       </div>
       
       <span>
