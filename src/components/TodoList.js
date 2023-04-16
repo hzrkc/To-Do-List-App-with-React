@@ -70,11 +70,11 @@ class TodoList extends Component {
           <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between' }}>
             <span>
               <span className="inline-blocks">
-                <p style={{ fontSize: '2em', margin: '0' }}>{this.state.items.length} </p>
+                <p style={{ fontSize: '3em', margin: '0' }}>{this.state.items.length} </p>
                 <p style={{ margin: '0' }}> &nbsp;&nbsp;&nbsp;TO-DO</p>
               </span>
               <span className="inline-blocks">
-                <p style={{ fontSize: '2em', margin: '0' }}>{completedItemCount} </p>
+                <p style={{ fontSize: '3em', margin: '0' }}>{completedItemCount} </p>
                 <p style={{ margin: '0' }}> &nbsp;&nbsp;&nbsp;Completed</p>
               </span>
             </span>
