@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-import backgroundImage from '../75290.jpg';
 
 class TodoList extends Component {
   state = {
@@ -52,8 +51,7 @@ class TodoList extends Component {
 
     return (
       <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center',
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: "cover"}}>
+      backgroundColor:'rgba(128, 128, 128, 0.5)'}}>
         <div style={{ width: '700px' }}>
           <h1>To-Do List App by Hazar</h1>
           <form onSubmit={this.handleNewItemSubmit}>
@@ -93,6 +91,7 @@ class TodoList extends Component {
                 completed={item.completed} 
                 onDelete={() => this.handleDeleteItem(item.id)}
                 onToggleComplete={() => this.handleToggleComplete(item.id)}
+                style={{fontWeight: 'bold'}}
               />
             ))}
           </div>
