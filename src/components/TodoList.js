@@ -44,9 +44,11 @@ class TodoList extends Component {
     });
     this.setState({ items: updatedItems });
   };
-  
 
   render() {
+    const completedItems = this.state.items.filter(item => item.completed);
+    const completedItemCount = completedItems.length;
+
     return (
       <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '700px' }}>
@@ -59,8 +61,9 @@ class TodoList extends Component {
             />
             <button type="submit">Add</button>
           </form>
-          <div style={{ marginTop: '10px' }}> {/* Input ve listeleme arasında 10px'lik boşluk */}
-            <p>Toplam {this.state.items.length} adet yapılacak iş mevcut.</p>
+          <div style={{ marginTop: '10px' }}>
+            <p>{this.state.items.length} TO-DO.</p>
+            <p>Completed: {completedItemCount}</p>
             {this.state.items.map((item) => (
               <TodoItem 
                 key={item.id} 
