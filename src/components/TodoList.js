@@ -47,7 +47,7 @@ class TodoList extends Component {
       return (
         <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
           <div style={{ width: '700px' }}>
-            <h1>To-Do List</h1>
+            <h1>To-Do List App by Hazar</h1>
             <form onSubmit={this.handleNewItemSubmit}>
               <input
                 type="text"

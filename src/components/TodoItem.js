@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import '../styles/TodoItem.css';
 
 const TodoItem = ({ text, completed, onDelete }) => {
-  const [isClicked, setIsClicked] = useState(false); // yeni state değişkeni
+  const [isClicked, setIsClicked] = useState(false);
+  const [isChecked, setIsChecked] = useState(completed); // Yeni state değişkeni
 
   const handleDelete = () => {
     onDelete();
   };
 
   const handleClick = () => {
-    setIsClicked(!isClicked); // tıklama işlemiyle isClicked değeri tersine çevrilir
+    setIsClicked(!isClicked);
+  };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // checked özelliği burada tersine çevriliyor
   };
 
   return (
@@ -17,16 +23,22 @@ const TodoItem = ({ text, completed, onDelete }) => {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'space-between', 
-        maxWidth: '700px', // 700px olarak sınırlandırıldı.
-        marginBottom: '10px', // Her öğeden sonra 10px boşluk bırakıldı
-        textDecoration: isClicked ? 'line-through' : 'none' // text üstünün çizilmesi durumunda text-decoration özelliği line-through olarak ayarlanır
+        maxWidth: '700px', 
+        marginBottom: '10px', 
+        textDecoration: isClicked ? 'line-through' : 'none' 
       }}
-      onClick={handleClick} // tıklama işlemi burada uygulanır
+      onClick={handleClick}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <input type="checkbox" checked={completed} style={{ marginRight: '5px' }} /> {/* checkbox kutucuğu buraya taşındı ve metinden önce yerleştirildi */}
-        <span>{text}</span> {/* span elementi input kutucuğunun yanına taşındı ve aralarında boşluk bırakıldı */}
+        <input
+          className="custom-checkbox"
+          type="checkbox"
+          checked={isChecked} // checked özelliği burada state'e bağlandı
+          onChange={handleCheckboxChange} // onChange event'i buraya taşındı
+        />
+        <span style={{ marginLeft: '10px' }}>{text}</span> {/* aralarındaki boşluk küçültüldü */}
       </div>
+      
       <span>
         <button style={{ marginLeft: '200px' }} onClick={handleDelete}>
           Delete

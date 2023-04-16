@@ -1,0 +1,26 @@
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0 !important;
+  }
+  
+  .custom-checkbox input[type="checkbox"] + span {
+    margin-left: 10px !important;
+  }
+  
+  .custom-checkbox input[type="checkbox"] + span:before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 3px !important;
+  }
+  
+  .custom-checkbox input[type="checkbox"]:checked + span:before {
+    content: "\2713" !important;
+    text-align: center !important;
+    color: #fff !important;
+    background-color: #007bff !important;
+  }
+  

@@ -3,18 +3,19 @@ input[type="text"] {
   }
   
   button {
-    background-color: #4caf50;
+    background-color: #43ad94;
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 0.5rem 1rem;
     cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
   }
   
   button:hover {
-    background-color: #3e8e41;
+    background-color: #338471;
   }
   
   .completed {
     text-decoration: line-through;
   }
-  
