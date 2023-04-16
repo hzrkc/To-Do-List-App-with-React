@@ -50,7 +50,7 @@ class TodoList extends Component {
     const completedItemCount = completedItems.length;
 
     return (
-      <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center'}}>
         <div style={{ width: '700px' }}>
           <h1>To-Do List App by Hazar</h1>
           <form onSubmit={this.handleNewItemSubmit}>
@@ -61,9 +61,21 @@ class TodoList extends Component {
             />
             <button type="submit">Add</button>
           </form>
+
+          <br></br>
+
           <div style={{ marginTop: '10px' }}>
-            <p>{this.state.items.length} TO-DO.</p>
-            <p>Completed: {completedItemCount}</p>
+
+          <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between' }}>
+            <span>
+              <span className="inline-blocks">{this.state.items.length}  TO-DO</span>
+              <span className="inline-blocks">Completed  {completedItemCount}</span>
+            </span>
+          </div>
+
+          <br></br>
+          <br></br>
+
             {this.state.items.map((item) => (
               <TodoItem 
                 key={item.id} 
