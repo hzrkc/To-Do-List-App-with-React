@@ -24,13 +24,29 @@ input[type="text"] {
   .inline-blocks {
     width: 250px;
     height: 60px;
-    display: inline-block;
-    border: 3.5px solid rgb(20, 131, 139);
-    padding: 10px 20px;
-    margin-right: 30px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 50px;
+    justify-content: center;
+  }
+  
+  .inline-blocks p {
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
-    box-sizing: border-box;
+    margin: 0;
+    text-align: left;
   }
+  
+  .inline-blocks:first-child {
+    width: 170px;
+    border: 3.5px solid rgb(20, 131, 139);
+    padding: 0 20px;
+  }
+  
+  .inline-blocks:last-child {
+    width: 170px;
+    border: 3.5px solid rgb(20, 131, 139);
+    padding: 0 20px;
+  }
+  
   
