@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
+import backgroundImage from '../75290.jpg';
 
 class TodoList extends Component {
   state = {
@@ -50,7 +51,9 @@ class TodoList extends Component {
     const completedItemCount = completedItems.length;
 
     return (
-      <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center',
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: "cover"}}>
         <div style={{ width: '700px' }}>
           <h1>To-Do List App by Hazar</h1>
           <form onSubmit={this.handleNewItemSubmit}>
