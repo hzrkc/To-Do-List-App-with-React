@@ -4,17 +4,17 @@ import '../styles/TodoItem.css';
 const TodoItem = ({ text, completed, onDelete, onToggleComplete }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleDelete = () => {
+  const handleDelete = () => {    // Delete butonuna tıklandığında OnDelete fonk. çağırarak öğeyi siler.
     onDelete();
   };
 
   const handleClick = (e) => {
-    // Eğer checkbox veya Delete butonuna tıklandıysa, handleClick fonksiyonunu çağırmayız.
+    // Eğer checkbox veya Delete butonuna tıklandıysa, handleClick fonksiyonunu çağırmaz.
     if (e.target.tagName === "INPUT" || e.target.tagName === "BUTTON") {
       return;
     }
     setIsClicked(!isClicked);
-    onToggleComplete(); // Checkbox'ı işaretlemek için onToggleComplete fonksiyonunu çağırdık
+    onToggleComplete(); // Checkbox'ı işaretlemek için onToggleComplete fonksiyonunu çağırır
   };
   
 
@@ -35,7 +35,7 @@ const TodoItem = ({ text, completed, onDelete, onToggleComplete }) => {
           className="custom-checkbox"
           type="checkbox"
           checked={completed}
-          onChange={() => onToggleComplete(!completed)}
+          onChange={() => onToggleComplete(!completed)} // isClicked durumuna göre metnin üstünü çizer
         />
         <span>{text}</span>
       </div>

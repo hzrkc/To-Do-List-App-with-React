@@ -11,11 +11,13 @@ class TodoList extends Component {
     newItemText: '',
   };
 
-  handleNewItemChange = (event) => {
-    this.setState({ newItemText: event.target.value });
+  // setState -> öğelerin eklenmesi, completed olması ve silinmesi için kullanılır.
+
+  handleNewItemChange = (event) => {  // yeni bir öğe eklemek için kullanılan metin giriş kutusunun değişikliklerini izler
+    this.setState({ newItemText: event.target.value }); 
   };
 
-  handleNewItemSubmit = (event) => {
+  handleNewItemSubmit = (event) => {  // yeni bir öğe eklemek için input gönderilmesi durumunda çağrılır ve yeni bir öğe ekler
     event.preventDefault();
     const newItem = {
       id: Date.now(),
@@ -28,14 +30,14 @@ class TodoList extends Component {
     });
   };
 
-  handleDeleteItem = (itemId) => {
+  handleDeleteItem = (itemId) => {  // listeden bir öğe silmek için "Delete" düğmesine tıklanması durumunda çağrılır
     const itemIndex = this.state.items.findIndex(item => item.id === itemId);
     const updatedItems = [...this.state.items];
     updatedItems.splice(itemIndex, 1);
     this.setState({ items: updatedItems });
   };
 
-  handleToggleComplete = (itemId) => {
+  handleToggleComplete = (itemId) => {    // tamamlanmış görevlerin üstünü çizmek için çağırılır
     const updatedItems = this.state.items.map(item => {
       if (item.id === itemId) {
         return { ...item, completed: !item.completed };
@@ -46,8 +48,8 @@ class TodoList extends Component {
   };
 
   render() {
-    const completedItems = this.state.items.filter(item => item.completed);
-    const completedItemCount = completedItems.length;
+    const completedItems = this.state.items.filter(item => item.completed); 
+    const completedItemCount = completedItems.length;   // Tamamlanmış to-do sayısını tutar.
 
     return (
       <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center',
